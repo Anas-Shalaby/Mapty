@@ -260,7 +260,9 @@ class App {
     if (!workoutEl) return;
     const workout = this.#workouts.find(el => el.id === workoutEl.dataset.id);
 
-    this.#map.setView(workout.coords, this.#mapZoomLevel, {
+    let [one, two] = workout.coords;
+
+    this.#map.setView([one - 0.05, two], this.#mapZoomLevel, {
       Animation: true,
       pan: {
         duration: 1,
